@@ -1,3 +1,24 @@
+class MaximizableBox extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		return (
+			<div className="maximizable-box">
+				<div className="header">
+					<span>
+						<i className="fa fa-fw fa-rocket"></i>
+						{this.props.title}
+					</span>
+					<i className="fa fa-fw fa-window-maximize"></i>
+				</div>
+				<div>{this.props.content}</div>
+			</div>
+		);
+	}
+}
+
 class Editor extends React.Component {
 	constructor(props) {
 		super(props);
@@ -5,7 +26,7 @@ class Editor extends React.Component {
 
 	render() {
 		return (
-			<textarea id="editor"/>
+			<MaximizableBox title="Editor" content={<textarea id="editor"/>} />
 		);
 	}
 }
@@ -17,7 +38,7 @@ class Previewer extends React.Component {
 
 	render() {
 		return (
-			<div id="previewer"/>
+			<MaximizableBox title="Previewer" content={<div id="previewer">hola</div>} />
 		);
 	}
 }
@@ -29,13 +50,15 @@ class MarkdownPreviewer extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div id="container">
 				<Editor />
 				<Previewer />
-				<div>hola</div>
 			</div>
 		);
 	}
 }
 
-ReactDOM.render(<h1>Hello, world!</h1>, document.getElementById('root'));
+ReactDOM.render(
+	<MarkdownPreviewer />, 
+	document.getElementById('root')
+);
