@@ -5,7 +5,7 @@ class MaximizableBox extends React.Component {
 
 	render() {
 		return (
-			<div className="maximizable-box">
+			<div id={this.props.id} className="maximizable-box">
 				<div className="header">
 					<span>
 						<i className="fa fa-fw fa-rocket"></i>
@@ -26,7 +26,7 @@ class Editor extends React.Component {
 
 	render() {
 		return (
-			<MaximizableBox title="Editor" content={<textarea id="editor"/>} />
+			<MaximizableBox id="editor-box" title="Editor" content={<textarea id="editor"/>} />
 		);
 	}
 }
@@ -38,7 +38,7 @@ class Previewer extends React.Component {
 
 	render() {
 		return (
-			<MaximizableBox title="Previewer" content={<div id="previewer">hola</div>} />
+			<MaximizableBox id="previewer-box" title="Previewer" content={<div id="previewer">hola</div>} />
 		);
 	}
 }
@@ -46,6 +46,9 @@ class Previewer extends React.Component {
 class MarkdownPreviewer extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			editorText: ''
+		};
 	}
 
 	render() {

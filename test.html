@@ -9,14 +9,41 @@
 			height:100%;
 			display:flex;
 			flex-direction: column;
+			align-items: center;
+		}
 
+		@media (min-width: 850px) {
+			#hola {
+				width: 650px;
+			}
+			#adeu {
+				width: 800px;
+			}
+		}
+
+		@media (min-width: 660px) and (max-width: 850px) {
+			#hola {
+				width: 550px;
+			}
+			#adeu {
+				width: 660px;
+			}	
+		}
+
+		@media (max-width: 660px) {
+			#hola {
+				width: 85%;
+			}
+			#adeu {
+				width: 100%;
+			}
 		}
 	</style>
 </head>
 
 <body>
 	<div id="root">
-		<div class="box" style="width: 40%; background-color: lightblue">hola</div>
-		<div class="box" style="width: 50%; background-color: red">adeu</div>
+		<div class="box" id="hola" style="background-color: lightblue">hola</div>
+		<div class="box" id="adeu" style="background-color: red">adeu</div>
 	</div>
 </body>
